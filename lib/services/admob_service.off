@@ -1,0 +1,43 @@
+/*
+ *  admob_service.dart
+ *
+ *  Created by Ilya Chirkunov <xc@yar.net> on 28.12.2021.
+ */
+
+import 'dart:io';
+import 'package:flutter/material.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
+import 'package:single_radio/config.dart';
+
+class AdmobService {
+  static final _adUnitBottom =
+      Platform.isAndroid ? Config.admobAndroidAdUnit : Config.admobIosAdUnit;
+
+  static Future<void> init() async {
+    await MobileAds.instance.initialize();
+  }
+
+  static final _bannerAdListenerBottom = BannerAdListener(
+    onAdLoaded: (Ad ad) => debugPrint('Bottom Ad loaded.'),
+    onAdFailedToLoad: (Ad ad, LoadAdError error) {
+      debugPrint('Bottom onAdFailedToLoad: ${error.message}');
+      ad.dispose();
+    },
+    onAdOpened: (Ad ad) => debugPrint('Bottom Ad opened.'),
+    onAdClosed: (Ad ad) => debugPrint(' Bottom Ad closed.'),
+  );
+
+  static final _bannerAdBottom = BannerAd(
+      adUnitId: _adUnitBottom,
+      size: const AdSize(width: 320, height: 50),
+      request: const AdRequest(nonPersonalizedAds: true),
+      listener: _bannerAdListenerBottom)
+    ..load();
+
+  static final bannerBottom = Container(
+    alignment: Alignment.center,
+    width: _bannerAdBottom.size.width.toDouble(),
+    height: _bannerAdBottom.size.height.toDouble(),
+    child: AdWidget(key: UniqueKey(), ad: _bannerAdBottom),
+  );
+}

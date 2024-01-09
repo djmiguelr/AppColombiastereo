@@ -1,0 +1,80 @@
+/*
+ *  fcm_service.dart
+ *
+ *  Created by Ilya Chirkunov <xc@yar.net> on 11.04.2022.
+ */
+
+import 'package:flutter/foundation.dart' show kIsWeb;
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+
+late AndroidNotificationChannel channel;
+late FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin;
+
+class FcmService {
+  static Future<void> init() async {
+    await Firebase.initializeApp();
+    if (await _requestPermission() && !kIsWeb) await _setupNotifications();
+  }
+
+  static Future<bool> _requestPermission() async {
+    final settings = await FirebaseMessaging.instance.requestPermission(
+      alert: true,
+      announcement: false,
+      badge: true,
+      carPlay: false,
+      criticalAlert: false,
+      provisional: false,
+      sound: true,
+    );
+
+    return settings.authorizationStatus == AuthorizationStatus.authorized;
+  }
+
+  static Future<void> _setupNotifications() async {
+    // Android.
+    channel = const AndroidNotificationChannel(
+      'fcm_channel_id',
+      'News',
+      description: 'This channel is used for heads up notifications.',
+      importance: Importance.high,
+    );
+
+    flutterLocalNotificationsPlugin = FlutterLocalNotificationsPlugin();
+    await flutterLocalNotificationsPlugin
+        .resolvePlatformSpecificImplementation<
+            AndroidFlutterLocalNotificationsPlugin>()
+        ?.createNotificationChannel(channel);
+
+    // iOS.
+    await FirebaseMessaging.instance
+        .setForegroundNotificationPresentationOptions(
+      alert: true,
+      badge: true,
+      sound: true,
+    );
+
+    // Foreground messages.
+    FirebaseMessaging.onMessage.listen((RemoteMessage message) {
+      RemoteNotification? notification = message.notification;
+      AndroidNotification? android = message.notification?.android;
+
+      if (notification != null && android != null) {
+        flutterLocalNotificationsPlugin.show(
+          notification.hashCode,
+          notification.title,
+          notification.body,
+          NotificationDetails(
+            android: AndroidNotificationDetails(
+              channel.id,
+              channel.name,
+              channelDescription: channel.description,
+              icon: '@drawable/notification_icon',
+            ),
+          ),
+        );
+      }
+    });
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "968116541044",
+    "project_id": "single-radio-192f5",
+    "storage_bucket": "single-radio-192f5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:968116541044:android:a3658e42672508e2856321",
+        "android_client_info": {
+          "package_name": "com.cheebeez.single_radio"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "968116541044-u707hco29js0g5d7a7rqmhqctdbeju6c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAeDiY2vrAUDWbvTHtm30_Vk8d1NDmPcrM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "968116541044-u707hco29js0g5d7a7rqmhqctdbeju6c.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

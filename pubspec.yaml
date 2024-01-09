@@ -1,0 +1,78 @@
+name: single_radio
+description: Single channel radio player.
+publish_to: 'none'
+version: 1.8.0+24
+
+environment:
+  sdk: '>=2.18.2 <3.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  #firebase_core: 2.4.1
+  #firebase_messaging: 14.2.1
+  #flutter_local_notifications: 13.0.0
+  #google_mobile_ads: 2.3.0
+  cupertino_icons: 1.0.5
+  provider: 6.0.5
+  http: 0.13.5
+  share_plus: 6.3.0
+  in_app_review: 2.0.6
+  flutter_markdown: 0.6.13
+  flutter_svg: 1.1.6
+  url_launcher: 6.1.8
+  text_scroll: 0.1.2
+  sleek_circular_slider : 2.0.1
+  radio_player: 1.2.1
+  volume_regulator: 2.1.0
+  back_button_behavior: 0.0.1
+  dart_common_utils: 1.0.0
+
+dev_dependencies:
+  flutter_lints: 2.0.1
+  flutter_launcher_icons: 0.10.0
+  flutter_native_splash: 2.2.9
+  change_app_package_name: 1.1.0
+
+flutter_icons:
+  image_path: "assets/appicon/appicon.png"
+  adaptive_icon_background: "#FFFFFFFF"
+  adaptive_icon_foreground: "assets/appicon/appicon-adaptive.png"
+  android: true
+  ios: true
+  remove_alpha_ios: true
+
+flutter_native_splash:
+  color: "#172230"
+  image: assets/splash/splash.png
+  android: true
+  ios: true
+
+  android_12:
+    color: "#172230"
+    color_dark: "#172230"
+    image: assets/splash/splash12.png
+    image_dark: assets/splash/splash12.png
+
+flutter:
+  uses-material-design: true
+  assets: 
+    - assets/text/
+    - assets/images/
+    - assets/icons/
+
+  fonts:
+    - family: Custom
+      fonts:
+        - asset: fonts/Light.ttf
+          weight: 300
+        - asset: fonts/Regular.ttf
+          weight: 400
+        - asset: fonts/Medium.ttf
+          weight: 500
+        - asset: fonts/SemiBold.ttf
+          weight: 600
+        - asset: fonts/Bold.ttf
+          weight: 700
+        - asset: fonts/ExtraBold.ttf
+          weight: 800
