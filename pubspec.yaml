@@ -36,21 +36,21 @@ dev_dependencies:
 
 flutter_icons:
   image_path: "assets/appicon/appicon.png"
-  adaptive_icon_background: "#FFFFFFFF"
+  adaptive_icon_background: "#ff0000"
   adaptive_icon_foreground: "assets/appicon/appicon-adaptive.png"
   android: true
   ios: true
   remove_alpha_ios: true
 
 flutter_native_splash:
-  color: "#172230"
+  color: "#2196f3"
   image: assets/splash/splash.png
   android: true
   ios: true
 
   android_12:
-    color: "#172230"
-    color_dark: "#172230"
+    color: "#2196f3"
+    color_dark: "#2196f3"
     image: assets/splash/splash12.png
     image_dark: assets/splash/splash12.png
 
