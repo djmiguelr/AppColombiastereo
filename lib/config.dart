@@ -10,9 +10,9 @@ class Config {
   static const streamUrl = 'https://radio.milivingradio.com/listen/la_colombiana_stereo/radio.mp3';
 
   // Social links
-  static const instagram = '';
-  static const twitter = 'https://twitter.com/FlutterDev';
-  static const facebook = 'https://www.facebook.com/FlutterCommunity/';
+  static const instagram = 'https://instagram.com/luchojrlavoz';
+  static const twitter = '';
+  static const facebook = 'https://www.facebook.com/profile.php?id=100007028207296/';
   static const website = 'https://lacolombianastereo.com/';
   static const email = 'contacto@lacolombianastereo.com';
 
@@ -21,7 +21,7 @@ class Config {
   static const shareText = "Sientete como en Colombia";
 
   // Rate Us
-  static const appStoreId = '0123456789';
+  static const appStoreId = '';
 
   // Automatically start playing when the app is launched.
   static const autoplay = true;
@@ -36,8 +36,8 @@ class Config {
   static const textScrolling = true;
 
   // See documentation to enable Admob.
-  static const admobIosAdUnit = 'ca-app-pub-3940256099942544/6300978111';
-  static const admobAndroidAdUnit = 'ca-app-pub-3940256099942544/6300978111';
+  static const admobIosAdUnit = '';
+  static const admobAndroidAdUnit = '';
 
   // Parse metadata from third-party sources.
   static const metadataUrl = '';

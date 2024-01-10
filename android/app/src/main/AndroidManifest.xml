@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.voltajedigital.lacolombiana">
+    package="com.voltaje.colombianastereo">
     <application
         android:label="La Colombiana Stereo"
         android:name="${applicationName}"

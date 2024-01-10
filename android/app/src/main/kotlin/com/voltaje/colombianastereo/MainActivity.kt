@@ -1,4 +1,4 @@
-package com.voltajedigital.lacolombiana
+package com.voltaje.colombianastereo
 
 import io.flutter.embedding.android.FlutterActivity
 
